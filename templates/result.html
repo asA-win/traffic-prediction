@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.pexels.com/photos/7674/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .best-junction {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <h2>Predicted Traffic for Each Junction</h2>
+        <ul>
+            {% for j, predicted_vehicles, traffic_flow in predictions %}
+                <li>Junction {{ j }}: {{ predicted_vehicles|int }} vehicles ({{ traffic_flow }})</li>
+            {% endfor %}
+        </ul>
+        <p>Best Junction to Go: <span class="best-junction">Junction {{ best_junction[0] }}</span> ({{ best_junction[1]|int }} vehicles)</p>
+    </div>
+</body>
+</html>

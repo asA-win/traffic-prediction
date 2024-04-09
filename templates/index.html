@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Flow Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.pexels.com/photos/7674/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Change the image name as per your file */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); /* Change the background color and opacity as needed */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #efeded; /* Change the title color as needed */
+        }
+        input[type="date"],
+        input[type="time"],
+        input[type="number"] {
+            width: 250px; /* Adjust the width as needed */
+            padding: 10px; /* Adjust padding as needed */
+            margin: 5px; /* Adjust margin as needed */
+            border-radius: 5px; /* Adjust border-radius as needed */
+            border: 1px solid #ccc; /* Adjust border color as needed */
+            box-sizing: border-box;
+            font-size: 16px; /* Adjust font size as needed */
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Traffic Flow Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+        <label for="junction">Junction:</label>
+        <input type="number" id="junction" name="junction" min="1" max="4" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
