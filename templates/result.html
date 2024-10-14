@@ -8,6 +8,7 @@
         body {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
             background-image: url('https://images.pexels.com/photos/7674/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
@@ -18,10 +19,27 @@
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        h1, h2, p {
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 10px;
         }
 
         .best-junction {
@@ -35,11 +53,11 @@
         <h1>Prediction Result</h1>
         <h2>Predicted Traffic for Each Junction</h2>
         <ul>
-            {% for j, predicted_vehicles, traffic_flow in predictions %}
-                <li>Junction {{ j }}: {{ predicted_vehicles|int }} vehicles ({{ traffic_flow }})</li>
+            {% for junction, predicted_vehicles, traffic_flow in predictions %}
+                <li>Junction {{ junction }}: {{ predicted_vehicles|int }} vehicles ({{ traffic_flow }})</li>
             {% endfor %}
         </ul>
-        <p>Best Junction to Go: <span class="best-junction">Junction {{ best_junction[0] }}</span> ({{ best_junction[1]|int }} vehicles)</p>
+        <p>Recommended Junction: <span class="best-junction">Junction {{ best_junction[0] }}</span> ({{ best_junction[1]|int }} vehicles)</p>
     </div>
 </body>
 </html>
